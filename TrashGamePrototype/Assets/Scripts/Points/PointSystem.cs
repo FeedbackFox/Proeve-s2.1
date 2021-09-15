@@ -14,7 +14,7 @@ public class PointSystem : MonoBehaviour
 
     private void Update()
     {
-        PointsText.text = _obtainedPoints.ToString();
+        PointsText.text = "Points: " + _obtainedPoints.ToString();
     }
 
     //Adds the given amount of points to the total(_obtainedPoints)
