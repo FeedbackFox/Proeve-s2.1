@@ -12,6 +12,10 @@ public class PointSystem : MonoBehaviour
     int _obtainedPoints;
     public Text PointsText;
 
+    private void Awake()
+    {
+        _obtainedPoints = 1000;
+    }
     private void Update()
     {
         PointsText.text = "Points: " + _obtainedPoints.ToString();
@@ -27,5 +31,6 @@ public class PointSystem : MonoBehaviour
     public void RemovePoints(int points)
     {
         _obtainedPoints -= points;
+        Debug.Log("Removed: " + points + " points");
     }
 }
