@@ -16,15 +16,12 @@ public class PointSystem : MonoBehaviour
     {
         _obtainedPoints = 1000;
     }
-    private void Update()
-    {
-        PointsText.text = "Points: " + _obtainedPoints.ToString();
-    }
 
     //Adds the given amount of points to the total(_obtainedPoints)
     public void AddPoints(int points)
     {
         _obtainedPoints += points;
+        PointsText.text = "Points: " + _obtainedPoints.ToString();
     }
 
     //Removes the given amount of points from the total(_obtainedPoints)
@@ -32,5 +29,7 @@ public class PointSystem : MonoBehaviour
     {
         _obtainedPoints -= points;
         Debug.Log("Removed: " + points + " points");
+        Debug.Log(_obtainedPoints);
+        PointsText.text = "Points: " + _obtainedPoints.ToString();
     }
 }

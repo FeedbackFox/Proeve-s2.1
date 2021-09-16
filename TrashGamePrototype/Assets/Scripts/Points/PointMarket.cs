@@ -8,6 +8,7 @@ using UnityEngine.UI;
 /// </summary>
 public class PointMarket : MonoBehaviour
 {
+    public GameObject ScriptManager;
     public GameObject MarketObject;
     //PointSystem pointSystem;
 
@@ -20,6 +21,9 @@ public class PointMarket : MonoBehaviour
         UnobtainedItems.Add("Kleur: rood");
         UnobtainedItems.Add("Kleur: blauw");
         UnobtainedItems.Add("kleur: zwart");
+        ObtainedItems.Add("Kleur: rood");
+        ObtainedItems.Add("Kleur: blauw");
+        ObtainedItems.Add("kleur: zwart");
         //CheckLists();
     }
 
@@ -37,19 +41,22 @@ public class PointMarket : MonoBehaviour
     }
 
     //Buys the item
-    public void BuyItem(string _itemName)
+    public void BuyItem(int _itemNumber)
     {
-        UnobtainedItems.Remove(_itemName);
-        ObtainedItems.Add(_itemName);
-        CheckLists();
-        if (this.gameObject.name.Contains("kleur"))
-        {
-            this.gameObject.SetActive(false);
-        }
-        if (_itemName.Contains("kleur"))
-        {
-            MarketObject.GetComponent<PointSystem>().RemovePoints(100);
-        }
-        Debug.Log(_itemName + " gekocht");
+        Debug.Log(UnobtainedItems[_itemNumber].ToString() + " gekocht");
+        ObtainedItems.Add(UnobtainedItems[_itemNumber]);
+        UnobtainedItems.Remove(UnobtainedItems[_itemNumber]);
+        //CheckLists();
+        gameObject.GetComponent<PointSystem>().RemovePoints(100);
+    }
+
+    public void OpenMarket()
+    {
+        MarketObject.SetActive(true);
+    }
+
+    public void CloseMarket()
+    {
+        MarketObject.SetActive(false);
     }
 }
