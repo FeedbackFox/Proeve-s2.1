@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Main.unity
+- path: D:/school/examen/test/New Unity Project/Assets/Scenes/SampleScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
