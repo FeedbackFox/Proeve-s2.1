@@ -20,6 +20,7 @@ public class Inventory : MonoBehaviour
 
     public void CloseInventory()
     {
+        Destroy(ItemText);
         inventoryObject.SetActive(false);
     }
 }

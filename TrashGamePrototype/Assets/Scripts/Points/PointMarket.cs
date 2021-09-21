@@ -10,8 +10,10 @@ public class PointMarket : MonoBehaviour
 {
     public GameObject ScriptManager;
     public GameObject MarketObject;
-    //PointSystem pointSystem;
 
+    public Text NotificationText;
+
+    //PointSystem pointSystem;
     public List<string> UnobtainedItems = new List<string>();
     public List<string> ObtainedItems = new List<string>();
 
@@ -41,13 +43,15 @@ public class PointMarket : MonoBehaviour
     }
 
     //Buys the item
-    public void BuyItem(int _itemNumber)
+    public void BuyItem(string _itemNumber)
     {
-        Debug.Log(UnobtainedItems[_itemNumber].ToString() + " gekocht");
-        ObtainedItems.Add(UnobtainedItems[_itemNumber]);
-        UnobtainedItems.Remove(UnobtainedItems[_itemNumber]);
-        //CheckLists();
-        gameObject.GetComponent<PointSystem>().RemovePoints(100);
+        string i = _itemNumber;
+        ObtainedItems.Add(i.ToString());
+        UnobtainedItems.Remove(i.ToString());
+        if (gameObject.GetComponent<PointSystem>()._obtainedPoints > 100)
+        {
+            gameObject.GetComponent<PointSystem>().RemovePoints(100);
+        }
     }
 
     public void OpenMarket()
