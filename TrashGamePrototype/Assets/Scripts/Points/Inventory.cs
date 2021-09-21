@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    PointMarket pointMarket;
     public Text ItemText;
     public GameObject inventoryObject;
 
@@ -20,7 +19,7 @@ public class Inventory : MonoBehaviour
 
     public void CloseInventory()
     {
-        Destroy(ItemText);
+        ItemText.text = null;
         inventoryObject.SetActive(false);
     }
 }

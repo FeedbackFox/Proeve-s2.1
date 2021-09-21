@@ -46,11 +46,15 @@ public class PointMarket : MonoBehaviour
     public void BuyItem(string _itemNumber)
     {
         string i = _itemNumber;
-        ObtainedItems.Add(i.ToString());
+        Debug.Log(i);
+        ObtainedItems.Add(i);
         UnobtainedItems.Remove(i.ToString());
         if (gameObject.GetComponent<PointSystem>()._obtainedPoints > 100)
         {
             gameObject.GetComponent<PointSystem>().RemovePoints(100);
+        } else
+        {
+            Debug.Log("Can not buy");
         }
     }
 
