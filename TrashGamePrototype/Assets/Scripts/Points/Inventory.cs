@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour
 
     public void OpenInventory()
     {
+        gameObject.GetComponent<PointMarket>().MarketObject.SetActive(false);
         inventoryObject.SetActive(true);
         foreach (string str in gameObject.GetComponent<PointMarket>().ObtainedItems)
         {

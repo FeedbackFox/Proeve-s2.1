@@ -60,6 +60,7 @@ public class PointMarket : MonoBehaviour
 
     public void OpenMarket()
     {
+        gameObject.GetComponent<Inventory>().inventoryObject.SetActive(false);
         MarketObject.SetActive(true);
     }
 
